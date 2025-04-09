@@ -46,6 +46,7 @@ jobs:
             - name: development-plan
               uses: Cloud-Engineering-EA/composite-action-terraform-deploy@v1.0
               with:
+                config_directory: terraform
                 terraform_action: plan
                 environment: development
     development-apply:
@@ -66,9 +67,10 @@ jobs:
                 role-to-assume: ${{ secrets.AWS_ROLE }}
                 role-session-name: ${{ env.ROLE_SESSION }}
 
-            - name: development-plan
+            - name: development-apply
               uses: Cloud-Engineering-EA/composite-action-terraform-deploy@v1.0
               with:
+                config_directory: terraform
                 terraform_action: apply
                 environment: development
 
